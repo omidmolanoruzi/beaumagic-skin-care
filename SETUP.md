@@ -25,11 +25,13 @@ npm install
 4. Choose **URI**, **Direct connection**, port **5432** (not the transaction pooler on 6543).
 5. Copy the connection string and ensure it includes SSL, e.g. `?sslmode=require`.
 
-Example (project **Ciel**, ref `txlfrxoreoljsjmcbelt`):
+Example (project **Ciel**, ref `txlfrxoreoljsjmcbelt`) — use the **session pooler** on port 5432 with libpq-compatible SSL:
 
 ```
-postgresql://postgres:[PASSWORD]@db.txlfrxoreoljsjmcbelt.supabase.co:5432/postgres?sslmode=require
+postgresql://postgres.txlfrxoreoljsjmcbelt:[PASSWORD]@aws-0-us-west-2.pooler.supabase.com:5432/postgres?uselibpqcompat=true&sslmode=require
 ```
+
+Do **not** use the transaction pooler (port 6543) for Medusa migrations.
 
 ## 3. Backend environment
 
