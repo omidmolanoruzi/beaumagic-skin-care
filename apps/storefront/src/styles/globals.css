@@ -1,0 +1,140 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/*
+ * Warm-minimal theme (Typology x Klur)
+ * Overrides @medusajs/ui-preset design tokens so every component that uses
+ * ui-* classes (bg-ui-bg-base, text-ui-fg-base, border-ui-border-base, ...)
+ * re-skins to the cream/clay palette globally. Unlayered :root wins the cascade.
+ */
+:root {
+  --bg-base: rgba(251, 248, 243, 1); /* cream */
+  --bg-base-hover: rgba(244, 239, 230, 1);
+  --bg-subtle: rgba(241, 233, 220, 1); /* sand */
+  --bg-subtle-hover: rgba(234, 224, 208, 1);
+  --bg-component: rgba(255, 255, 255, 1);
+  --bg-field: rgba(255, 255, 255, 1);
+
+  --fg-base: rgba(46, 42, 37, 1); /* espresso */
+  --fg-subtle: rgba(110, 101, 90, 1); /* taupe */
+  --fg-muted: rgba(150, 139, 124, 1);
+  --fg-interactive: rgba(166, 121, 79, 1); /* clay */
+  --fg-interactive-hover: rgba(140, 100, 64, 1);
+
+  --border-base: rgba(229, 219, 203, 1); /* sand border */
+  --border-strong: rgba(214, 201, 181, 1);
+
+  --button-inverted: rgba(46, 42, 37, 1); /* espresso primary */
+  --button-inverted-hover: rgba(62, 56, 49, 1);
+  --button-inverted-pressed: rgba(30, 27, 23, 1);
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  input:focus ~ label,
+  input:not(:placeholder-shown) ~ label {
+    @apply -translate-y-2 text-xsmall-regular;
+  }
+
+  input:focus ~ label {
+    @apply left-0;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: 1px solid #212121;
+    -webkit-text-fill-color: #212121;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+@layer components {
+  .content-container {
+    @apply max-w-[1440px] w-full mx-auto px-6;
+  }
+
+  .contrast-btn {
+    @apply px-4 py-2 border border-espresso rounded-full hover:bg-espresso hover:text-cream transition-colors duration-200 ease-in;
+  }
+
+  .text-xsmall-regular {
+    @apply text-[10px] leading-4 font-normal;
+  }
+
+  .text-small-regular {
+    @apply text-xs leading-5 font-normal;
+  }
+
+  .text-small-semi {
+    @apply text-xs leading-5 font-semibold;
+  }
+
+  .text-base-regular {
+    @apply text-sm leading-6 font-normal;
+  }
+
+  .text-base-semi {
+    @apply text-sm leading-6 font-semibold;
+  }
+
+  .text-large-regular {
+    @apply text-base leading-6 font-normal;
+  }
+
+  .text-large-semi {
+    @apply text-base leading-6 font-semibold;
+  }
+
+  .text-xl-regular {
+    @apply text-2xl leading-[36px] font-normal;
+  }
+
+  .text-xl-semi {
+    @apply text-2xl leading-[36px] font-semibold;
+  }
+
+  .text-2xl-regular {
+    @apply text-[30px] leading-[48px] font-normal;
+  }
+
+  .text-2xl-semi {
+    @apply text-[30px] leading-[48px] font-semibold;
+  }
+
+  .text-3xl-regular {
+    @apply text-[32px] leading-[44px] font-normal;
+  }
+
+  .text-3xl-semi {
+    @apply text-[32px] leading-[44px] font-semibold;
+  }
+}
