@@ -99,6 +99,18 @@ cd ..\..
 npm run dev
 ```
 
+## Future: Supabase Storage
+
+Supabase API keys are pre-configured in `apps/storefront/.env.local.template` (placeholders) and should be copied into your local `apps/storefront/.env.local` alongside the Medusa vars. The storefront does **not** use Supabase Storage or Auth yet — keys are saved for a later integration (e.g. product images, uploads).
+
+| Variable | Scope |
+|----------|-------|
+| `NEXT_PUBLIC_SUPABASE_URL` | Client-safe |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Client-safe |
+| `SUPABASE_SERVICE_ROLE_KEY` | **Server only** — never expose to the browser |
+
+Get values from Supabase Dashboard → **Project Settings → API** (project **Ciel**, ref `txlfrxoreoljsjmcbelt`).
+
 ## Secrets
 
 Never commit:
