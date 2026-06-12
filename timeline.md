@@ -208,3 +208,17 @@ To feature your real products later, edit `FEATURED_HANDLES`.
 | 18:02 | `SETUP.md` *(new)* | Full setup: clone, Supabase Cloud connection, migrate, env, dev, other-computer instructions. |
 | 18:02 | `README.md` | Rewritten for skin-app (cream storefront, Supabase Cloud, link to SETUP.md). |
 | 18:03 | `apps/backend/.env` | `DATABASE_URL` pointed at Supabase Cloud project **Ciel** (`db.txlfrxoreoljsjmcbelt.supabase.co`) — local only, not committed. Replace `YOUR_DB_PASSWORD` then run `npx medusa db:migrate`. |
+
+---
+
+## 2026-06-12 — Supabase Cloud connected + migrations run
+
+**Goal:** Connect Medusa to Supabase Cloud project **Ciel** and seed the cloud database.
+
+| Time (EDT) | File(s) | Change |
+|---|---|---|
+| 02:10 | `apps/backend/.env` | Session pooler URL (port 5432) with `uselibpqcompat=true&sslmode=require` (required for Node/pg; plain `sslmode=require` timed out). |
+| 02:12 | Cloud DB | `npx medusa db:migrate` succeeded — schema, NA regions, Restorative Cream, admin user seeded. |
+| 02:13 | `apps/storefront/.env.local` | Updated Medusa publishable key (`pk_0053…`) from cloud DB. |
+| 02:14 | `apps/storefront/.env.local` | Supabase anon + service_role keys saved for future Storage (not used yet). |
+| 02:15 | `SETUP.md`, `.env.local.template` | Supabase Storage placeholders + session pooler SSL docs pushed to GitHub. |
