@@ -115,4 +115,6 @@ These are listed in `.gitignore`.
 | `connect ECONNREFUSED 127.0.0.1:54322` | `DATABASE_URL` still points at local Supabase — update to Supabase Cloud URI |
 | Storefront shows no products | Wrong or missing `NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY` |
 | SSL / connection errors | Add `?sslmode=require` to `DATABASE_URL` |
+| `password authentication failed` | Replace `YOUR_DB_PASSWORD` in `apps/backend/.env` with your Supabase database password (Dashboard → Project Settings → Database). Use **Reset database password** if you lost it. |
+| Migrate hangs / timeout | Usually wrong password or project paused — verify project **Ciel** is active in Supabase dashboard |
 | Stale homepage after data changes | Delete `apps/storefront/.next` and restart `npm run dev` |

@@ -207,4 +207,4 @@ To feature your real products later, edit `FEATURED_HANDLES`.
 | 18:01 | `apps/storefront/.env.local.template` *(new)* | Storefront env template (publishable key, backend URL, default region `ca`). |
 | 18:02 | `SETUP.md` *(new)* | Full setup: clone, Supabase Cloud connection, migrate, env, dev, other-computer instructions. |
 | 18:02 | `README.md` | Rewritten for skin-app (cream storefront, Supabase Cloud, link to SETUP.md). |
-| 18:03 | `apps/backend/.env` | `DATABASE_URL` pointed at Supabase Cloud (local `.env` only, not committed). |
+| 18:03 | `apps/backend/.env` | `DATABASE_URL` pointed at Supabase Cloud project **Ciel** (`db.txlfrxoreoljsjmcbelt.supabase.co`) — local only, not committed. Replace `YOUR_DB_PASSWORD` then run `npx medusa db:migrate`. |
