@@ -3,6 +3,7 @@ import React, { Suspense } from "react"
 import ImageGallery from "@modules/products/components/image-gallery"
 import ProductActions from "@modules/products/components/product-actions"
 import ProductOnboardingCta from "@modules/products/components/product-onboarding-cta"
+import ProductReviews from "@modules/products/components/product-reviews"
 import ProductTabs from "@modules/products/components/product-tabs"
 import RelatedProducts from "@modules/products/components/related-products"
 import ProductInfo from "@modules/products/templates/product-info"
@@ -17,6 +18,17 @@ type ProductTemplateProps = {
   region: HttpTypes.StoreRegion
   countryCode: string
   images: HttpTypes.StoreProductImage[]
+}
+
+function ProductReviewsSkeleton() {
+  return (
+    <section className="w-full bg-sand border-t border-ui-border-base">
+      <div className="content-container py-16 small:py-24 animate-pulse">
+        <div className="h-8 bg-cream rounded w-64 mx-auto mb-12" />
+        <div className="max-w-5xl mx-auto h-40 bg-cream rounded" />
+      </div>
+    </section>
+  )
 }
 
 const ProductTemplate: React.FC<ProductTemplateProps> = ({
@@ -57,6 +69,11 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({
           </Suspense>
         </div>
       </div>
+
+      <Suspense fallback={<ProductReviewsSkeleton />}>
+        <ProductReviews product={product} countryCode={countryCode} />
+      </Suspense>
+
       <div
         className="content-container my-16 small:my-32"
         data-testid="related-products-container"

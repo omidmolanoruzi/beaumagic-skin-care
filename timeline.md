@@ -222,3 +222,32 @@ To feature your real products later, edit `FEATURED_HANDLES`.
 | 02:13 | `apps/storefront/.env.local` | Updated Medusa publishable key (`pk_0053…`) from cloud DB. |
 | 02:14 | `apps/storefront/.env.local` | Supabase anon + service_role keys saved for future Storage (not used yet). |
 | 02:15 | `SETUP.md`, `.env.local.template` | Supabase Storage placeholders + session pooler SSL docs pushed to GitHub. |
+
+---
+
+## 2026-03-06 — Product reviews on product page
+
+**Goal:** Let shoppers read and write product reviews on the cream product page, backed by Supabase Cloud, styled to match the warm-minimal brand.
+
+| Time (EDT) | File(s) | Change |
+|---|---|---|
+| 10:45 | `supabase/migrations/20260306100000_product_reviews.sql` *(new)* | `product_reviews` table, index, RLS (public read published). |
+| 10:46 | `apps/storefront/package.json` | Added `@supabase/supabase-js`, `zod`. |
+| 10:47 | `apps/storefront/src/lib/supabase/db.ts` *(new)* | Server-only Postgres pool for reviews (`DATABASE_URL`). |
+| 10:47 | `apps/storefront/src/lib/data/reviews.ts` *(new)* | `getReviews`, `getReviewSummary`, `createReview` server actions. |
+| 10:48 | `apps/storefront/src/modules/products/components/product-reviews/*` *(new)* | Summary, list, form, star rating, rating badge components. |
+| 10:49 | `apps/storefront/src/modules/products/templates/index.tsx` | Full-width reviews section between hero and related products. |
+| 10:49 | `apps/storefront/src/modules/products/templates/product-info/index.tsx` | Star summary + link to `#reviews` under product title. |
+| 10:50 | `apps/storefront/.env.local.template` | `DATABASE_URL` for server-side review queries (same as backend). |
+
+---
+
+## 2026-03-06 — Homepage featured reviews
+
+**Goal:** Show top product reviews on the homepage directly under the “Our approach” value-prop section.
+
+| Time (EDT) | File(s) | Change |
+|---|---|---|
+| 11:05 | `apps/storefront/src/lib/data/reviews.ts` | `getBestReviews()` — top 4–5★ reviews by rating; revalidate homepage on new review. |
+| 11:05 | `apps/storefront/src/modules/home/components/featured-reviews/*` *(new)* | Sand-band section with up to 3 quote-style review cards + link to product reviews. |
+| 11:05 | `apps/storefront/src/app/[countryCode]/(main)/page.tsx` | Insert `<FeaturedReviews />` between `ValueProp` and `Collection`. |

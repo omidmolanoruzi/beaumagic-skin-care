@@ -1,6 +1,8 @@
-import { HttpTypes } from "@medusajs/types"
 import { Heading, Text } from "@modules/common/components/ui"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import ProductRatingBadge from "@modules/products/components/product-reviews/product-rating-badge"
+import { HttpTypes } from "@medusajs/types"
+import { Suspense } from "react"
 
 type ProductInfoProps = {
   product: HttpTypes.StoreProduct
@@ -25,6 +27,16 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
         >
           {product.title}
         </Heading>
+
+        {product.handle && (
+          <Suspense
+            fallback={
+              <span className="text-sm text-ui-fg-muted h-5 block" />
+            }
+          >
+            <ProductRatingBadge productHandle={product.handle} />
+          </Suspense>
+        )}
 
         <Text
           className="text-medium text-ui-fg-subtle whitespace-pre-line"
