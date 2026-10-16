@@ -8,8 +8,14 @@
  * ui-* classes (bg-ui-bg-base, text-ui-fg-base, border-ui-border-base, ...)
  * re-skins to the cream/clay palette globally. Unlayered :root wins the cascade.
  */
+body,
+.bg-cream,
+.bg-sand {
+  background-color: #b6b7a5;
+}
+
 :root {
-  --bg-base: rgba(251, 248, 243, 1); /* cream */
+  --bg-base: #b6b7a5;
   --bg-base-hover: rgba(244, 239, 230, 1);
   --bg-subtle: rgba(241, 233, 220, 1); /* sand */
   --bg-subtle-hover: rgba(234, 224, 208, 1);

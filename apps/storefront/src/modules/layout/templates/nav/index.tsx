@@ -31,12 +31,19 @@ export default async function Nav() {
               className="font-serif text-2xl tracking-tight text-espresso hover:text-clay transition-colors"
               data-testid="nav-store-link"
             >
-              Medusa Store
+              Beau magic
             </LocalizedClientLink>
           </div>
 
           <div className="flex items-center gap-x-6 h-full flex-1 basis-0 justify-end">
             <div className="hidden small:flex items-center gap-x-6 h-full">
+              <LocalizedClientLink
+                className="hover:text-ui-fg-base"
+                href="/blog"
+                data-testid="nav-blog-link"
+              >
+                Blog
+              </LocalizedClientLink>
               <LocalizedClientLink
                 className="hover:text-ui-fg-base"
                 href="/account"

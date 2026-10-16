@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 
-const WORDS = ["considered", "crafted", "made to last"]
+const WORDS = ["Skin conditioning", "Skin barrier support", "Skin Anti-aging"]
 
 const CyclingWords = () => {
   const [index, setIndex] = useState(0)
@@ -23,13 +23,13 @@ const CyclingWords = () => {
   }, [])
 
   return (
-    <span className="relative inline-flex items-baseline">
+    <span className="relative inline-block">
       {/* invisible sizer keeps layout stable as the word changes */}
       <span aria-hidden className="invisible whitespace-nowrap font-serif italic">
-        made to last
+        Skin barrier support
       </span>
       <span
-        className={`absolute left-0 whitespace-nowrap font-serif italic text-clay transition-all duration-300 ease-out ${
+        className={`absolute inset-0 flex justify-center whitespace-nowrap font-serif italic text-clay transition-all duration-300 ease-out ${
           visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-1"
         }`}
       >

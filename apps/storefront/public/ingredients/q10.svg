@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <rect width="160" height="160" fill="#c9842a"/>
+  <circle cx="58" cy="78" r="36" fill="#f6c15b" opacity="0.9"/>
+  <circle cx="104" cy="58" r="24" fill="#ffe08a" opacity="0.85"/>
+  <circle cx="112" cy="108" r="28" fill="#e0a03a"/>
+  <text x="58" y="84" text-anchor="middle" font-size="16" fill="#8a4b12" font-family="Georgia, serif">Q10</text>
+</svg>

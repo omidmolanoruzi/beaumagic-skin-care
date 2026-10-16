@@ -2,6 +2,7 @@ import { Metadata } from "next"
 
 import Hero from "@modules/home/components/hero"
 import ValueProp from "@modules/home/components/value-prop"
+import Blog from "@modules/home/components/blog"
 import FeaturedReviews from "@modules/home/components/featured-reviews"
 import Collection from "@modules/home/components/collection"
 import { getRegion } from "@lib/data/regions"
@@ -32,6 +33,7 @@ export default async function Home(props: {
       <Hero />
       <ValueProp />
       <FeaturedReviews />
+      <Blog />
       <Collection region={region} countryCode={countryCode} />
     </>
   )
